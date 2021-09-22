@@ -15,7 +15,7 @@ void _push(stack_t **stack, unsigned int line_number)
 		n = addQueue(stack, stackQueueError[0]);
 	if (n < 0)
 	{
-		printf("L%d: usage: push integer\n", line_number);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		stackQueueError[2] = 1;
 		return;
 	}
@@ -51,7 +51,7 @@ void _pint(stack_t **stack, unsigned int line_number)
 	new_stack = *stack;
 	if (!new_stack)
 	{
-		printf("L%d: can't pint, stack empty\n", line_number);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
 		stackQueueError[2] = 1;
 		return;
 	}
@@ -69,7 +69,7 @@ void _pop(stack_t **stack, unsigned int line_number)
 
 	if (!*stack)
 	{
-		printf("L%d: can't pop an empty stack\n", line_number);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
 		stackQueueError[2] = 1;
 		return;
 	}
@@ -97,7 +97,7 @@ void _swap(stack_t **stack, unsigned int line_number)
 
 	if (!(*stack) || !(*stack)->next)
 	{
-		printf("L%d: can't swap, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 		stackQueueError[2] = 1;
 		return;
 	}

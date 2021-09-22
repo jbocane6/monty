@@ -24,7 +24,7 @@ int addStack(stack_t **head, int n)
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
-		printf("Error: malloc failed\n");
+		fprintf(stderr, "Error: malloc failed\n");
 		return (-1);
 	}
 	new_node->n = n;
@@ -56,7 +56,7 @@ int addQueue(stack_t **head, int n)
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
-		printf("Error: malloc failed\n");
+		fprintf(stderr, "Error: malloc failed\n");
 		return (-1);
 	}
 	new_node->n = n;
@@ -90,14 +90,14 @@ void _pchar(stack_t **stack, unsigned int line_number)
 	temp = (*stack);
 	if (!temp)
 	{
-		printf("L%d: can't pchar, stack empty\n", line_number);
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
 		stackQueueError[2] = 1;
 		return;
 	}
 	c = temp->n;
 	if (!(isAscii(c)))
 	{
-		printf("L%d: can't pchar, value out of range\n", line_number);
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
 		stackQueueError[2] = 1;
 		return;
 	}

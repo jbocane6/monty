@@ -8,7 +8,7 @@ void sizeOfArgc(int argc)
 {
 	if (argc != 2)
 	{
-		printf("USAGE: monty file\n");
+		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 }
@@ -22,7 +22,7 @@ void checkIfOpen(FILE *fp, char *filename)
 {
 	if (!fp)
 	{
-		printf("Error: Can't open file %s\n", filename);
+		fprintf(stderr, "Error: Can't open file %s\n", filename);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -54,7 +54,7 @@ void opcodeIsNull(void (*opcode)(), int nOfLine, char *strOpcode)
 {
 	if (!opcode)
 	{
-		printf("L%d: unknown instruction %s\n", nOfLine, strOpcode);
+		fprintf(stderr, "L%d: unknown instruction %s\n", nOfLine, strOpcode);
 		stackQueueError[2] = 1;
 	}
 }
