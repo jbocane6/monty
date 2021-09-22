@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 		if (status == 0)
 			continue;
 		if (strcmp(lineToken[0], "push") == 0)
-			pushArgs(lineToken, nOfLine);
+			pushArgs(lineToken, nOfLine, line, fp, head);
 		isFail(line, fp, head);
 		stackOrQueue(lineToken[0]);
 		fptr = get_opt_function(lineToken[0]);

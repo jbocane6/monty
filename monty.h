@@ -50,7 +50,7 @@ int checkIfEmpty(const char *str);
 /* tokenize - Tokenize command and any arguments */
 int tokenize(char *str, char *tokens[]);
 /* pushArgs - Verifies if opcode push and its value are entered. */
-void pushArgs(char **tok_line, int nOfLine);
+void pushArgs(char *lineToken[], int nOfLine, char *lin, FILE *fp, stack_t *h);
 /* isFail - check if got a fail. */
 void isFail(char *line, FILE *fp, stack_t *head);
 /* stackOrQueue - Change type between stack or queue */
