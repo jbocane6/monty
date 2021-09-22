@@ -45,17 +45,14 @@ int tokenize(char *str, char *tokens[])
  * @lineToken: line received.
  * @nOfLine: Number of line.
  */
-void pushArgs(char *lineToken[], int nOfLine, char *lin, FILE *fp, stack_t *h)
+void pushArgs(char *lineToken[], int nOfLine)
 {
 	if (lineToken[1] && lineToken[1][0] && isNumber(lineToken[1]))
 		stackQueueError[0] = atoi(lineToken[1]);
 	else
 	{
-		free(lin);
-		fclose(fp);
-		freeStack(h);
-		printf("L%d: usage: push integer\n", nOfLine);
-		exit(EXIT_FAILURE);
+		fprintf(stderr, "L%d: usage: push integer\n", nOfLine);
+		stackQueueError[2] = 1;
 	}
 }
 
