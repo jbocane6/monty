@@ -25,9 +25,9 @@ int checkIfEmpty(const char *str)
 int tokenize(char *str, char *tokens[])
 {
 	int i, status;
-	char *token, *hold;
-
-	token = strtok_r(str, " \t\n", &hold);
+	char *token;
+	
+	token = strtok(str, " \t\n");
 	status = isCommented(&token);
 	if (status == 1)
 		return (0);
@@ -35,7 +35,7 @@ int tokenize(char *str, char *tokens[])
 	for (i = 0; token && i < 2; i++)
 	{
 		tokens[i] = token;
-		token = strtok_r(NULL, " \t\n", &hold);
+		token = strtok(NULL, " \t\n");
 	}
 	return (1);
 }
@@ -62,9 +62,9 @@ void pushArgs(char *lineToken[], int nOfLine)
  */
 void clearString(char *tokens[])
 {
-	tokens[0][0] = '\0';
 	if (strcmp(tokens[0], "push") == 0)
 		tokens[1][0] = '\0';
+	tokens[0][0] = '\0';
 }
 
 /**
